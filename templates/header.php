@@ -57,12 +57,12 @@ $titles = [
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Имя пользователя
+                  <?= $_SESSION['user']['login'] ?> 
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/pages/user.php">Личный кабинет</a></li>
+                        <li><a class="dropdown-item" href="/pages/user.php?id=<?= $_SESSION['user']['id'] ?>">Личный кабинет</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Выйти</a></li>
+                        <li><a class="dropdown-item" href="/actions/logout.php">Выйти</a></li>
                 </ul>
               </li>
             </ul>
