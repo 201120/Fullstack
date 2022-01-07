@@ -45,6 +45,17 @@ $titles = [
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                  <?php if (($_SESSION['user']['is_admin'])) { ?>
+                    <li class="nav-item">
+                <a class="nav-link <?= $_SERVER['PHP_SELF'] == '/pages/admin/index.php' ? 'active' : ' ' ?>" aria-current="page" href="/pages/admin/index.php">
+                  Админка
+                </a>
+              </li>
+                  <?php } ?>        
+
+
+              <?php if (!isset($_SESSION['user'])) { ?>
               <li class="nav-item">
                 <a class="nav-link <?= $_SERVER['PHP_SELF'] == '/pages/login.php' ? 'active' : ' ' ?>" aria-current="page" href="/pages/login.php">
                   Авторизация
@@ -55,6 +66,7 @@ $titles = [
                   Регистрация
                 </a>
               </li>
+              <?php } else { ?>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <?= $_SESSION['user']['login'] ?> 
@@ -65,6 +77,9 @@ $titles = [
                         <li><a class="dropdown-item" href="/actions/logout.php">Выйти</a></li>
                 </ul>
               </li>
+
+              <?php  } ?>
+
             </ul>
           </div>
         </div>
