@@ -28,9 +28,30 @@ $titles = [
       <?= $titles[$_SERVER['PHP_SELF']] ?>
     </title>
     <style>
-       .btn-danger {
+       .btn-user-delete {
          border-radius: 100px;
          padding: 2px 12px 4px 12px;
+       }
+       .card-image img {
+          margin-top: 10px;
+          height: 180px;
+       }
+       .card-price {
+         text-align: center;
+         font-size: 23px;
+         border-bottom: 2px solid grey;
+       }
+       .card-image img {
+          width: auto;
+          height: 100%;
+       }
+       .btn-product-add, .btn-product-remove {
+         width: 37px
+       }
+       .card-basket-buttons {
+         margin-top: 15px;
+         display: flex;
+         justify-content: space-between;
        }
     </style>
   </head>
