@@ -1,6 +1,6 @@
-  <?php
-
-require $_SERVER['DOCUMENT_ROOT'] . '/config.php';
+<?php
+$document_root = $_SERVER['DOCUMENT_ROOT'];
+require $document_root . '/config.php';
 
 $titles = [
   '/index.php' => 'Главная',
@@ -41,29 +41,30 @@ $titles = [
         <div class="container-fluid">
           <a class="navbar-brand" href="/">Главная</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                  <?php if (($_SESSION['user']['is_admin'])) { ?>
+                  <?php if (isset($_SESSION['user'])) {
+                    if ($_SESSION['user']['is_admin']) {?>
                     <li class="nav-item">
-                <a class="nav-link <?= $_SERVER['PHP_SELF'] == '/pages/admin/index.php' ? 'active' : ' ' ?>" aria-current="page" href="/pages/admin/index.php">
-                  Админка
-                </a>
-              </li>
-                  <?php } ?>        
+                      <a class="nav-link <?= $_SERVER['PHP_SELF'] == '/pages/admin/index.php' ? 'active' : ' ' ?>" aria-current="page" href="/pages/admin/index.php">
+                           Админка
+                      </a>
+                    </li>
+                  <?php }} ?>        
 
 
               <?php if (!isset($_SESSION['user'])) { ?>
               <li class="nav-item">
                 <a class="nav-link <?= $_SERVER['PHP_SELF'] == '/pages/login.php' ? 'active' : ' ' ?>" aria-current="page" href="/pages/login.php">
-                  Авторизация
+                   Авторизация
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link <?= $_SERVER['PHP_SELF'] == '/pages/register.php' ? 'active' : ' ' ?>" href="/pages/register.php">
-                  Регистрация
+                   Регистрация
                 </a>
               </li>
               <?php } else { ?>
