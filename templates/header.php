@@ -49,9 +49,12 @@ $titles = [
          width: 37px
        }
        .card-basket-buttons {
-         margin-top: 15px;
-         display: flex;
-         justify-content: space-between;
+          margin-top: 15px;
+          display: flex;
+          justify-content: space-between;
+       }
+       .card-basket-quantity {
+          line-height: 38px;
        }
     </style>
   </head>
@@ -89,6 +92,13 @@ $titles = [
                 </a>
               </li>
               <?php } else { ?>
+
+              <li class="nav-item">
+                <a class="nav-link <?= $_SERVER['PHP_SELF'] == '/pages/basket.php' ? 'active' : ' ' ?>" href="/pages/basket.php">
+                   Корзина (<?= array_sum($_SESSION['products'] ?? []) ?>)
+                </a>
+              </li>
+
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <?= $_SESSION['user']['login'] ?> 

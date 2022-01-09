@@ -21,6 +21,7 @@ $products = $res->fetchAll();
 
 $cards = '';
 foreach ($products as $product){
+    $disabled = isset($_SESSION['products'][$product['id']]) ? '' : 'disabled';
     $cards .=
     "
     <div class='col-3 mb-2'>
@@ -36,18 +37,21 @@ foreach ($products as $product){
                     {$product['description']}
                 </p>
                 <div class='card-price'>
-                    {$product['price']}
+                    {$product['price']} руб.
                 </div>
                 <div class='card-basket-buttons'>
                 <form action='/actions/basket/remove_product.php' method='post'>
-                <input hidden value='{$product['id']}'>
-                <button class='btn btn-product-remove btn-danger'>-</button>
+                    <input name='id' hidden value='{$product['id']}'>
+                    <input name='category_id' hidden value='{$product['category_id']}'>
+                    <button $disabled class='btn btn-product-remove btn-danger'>-</button>
                 </form>
-                </div>
+                </div class='card-basket-quantity'>
+                    {$_SESSION['products'][$product['id']]}
                 <div>
                 <form action='/actions/basket/add_product.php' method='post'>
-                <input hidden value='{$product['id']}'>
-                <button class='btn btn-product-add btn-success'>+</button>
+                    <input name='id' hidden value='{$product['id']}'>
+                    <input name='category_id' hidden value='{$product['category_id']}'>
+                    <button class='btn btn-product-add btn-success'>+</button>
                 </form>
                 </div>
             </div>
