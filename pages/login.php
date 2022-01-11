@@ -2,7 +2,6 @@
 
 require_once '../templates/header.php';
 
-
 if (isset($_SESSION['loginError'])) {
      echo 
      "

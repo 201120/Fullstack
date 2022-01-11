@@ -1,6 +1,6 @@
 <?php
 
-require '../../temptates.header.php';
+require '../../templates/header.php';
 
 $query = "SELECT * FROM users";
 $res = $pdo->query($query);

@@ -25,7 +25,7 @@ if (isset($_SESSION['createProductErrors'])) {
 
 ?>
 
-<form metod="POST" enctype="multipart/form-data" action="/actions/admin/createProduct.php">
+<form method="POST" enctype="multipart/form-data" action="/actions/admin/createProduct.php">
    <input value="<?=$_SESSION['lastProductCreate']['name'] ?? '' ?>" class="form-control mb-2" name='name' placeholder="Наименование продукта">
    <textarea class="form-control mb-2" name='description' placeholder="Описание"><?= $_SESSION['lastProductCreate']['description'] ?? '' ?></textarea>
    <input value="<?=$_SESSION['lastProductCreate']['price'] ?? '' ?>" class="form-control mb-2" name='price' placeholder="Цена">
@@ -79,7 +79,7 @@ if (isset($_SESSION['createProductErrors'])) {
             <td>{$product['price']}</td>
             <td>{$product['category']}</td>
             <td class ='text-center'>
-            <img height='100' src='{$path}{$product['picture']}'>
+            <img height='100' src='/{$path}{$product['picture']}'>
             </td>
          </tr>
          ";   

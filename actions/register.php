@@ -29,8 +29,13 @@ if ($status) {
    $res->execute([
         ':login' => $login,
     ]);
-    $user = $res->fetchAll();
+    $user = $res->fetch();
     $_SESSION['user'] = $user;
+} else {
+    $_SESSION['registerError'] = 'Ошибка.';
+    header('Location: ../pages/register.php');
+    exit();
+
 }
 
 header('Location: ../index.php');
