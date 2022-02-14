@@ -3,7 +3,7 @@
 $userId = $_POST['id'];
 
 $user = 'root';
-$password = '';
+$password = 'root';
 $pdo = new Pdo('mysql:dbname=fullstack2;host=127.0.0.1;port=3306' , $user, $password);
 
 $query = "DELETE FROM users WHERE id = :id";

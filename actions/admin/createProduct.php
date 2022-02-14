@@ -55,8 +55,8 @@ $temp = explode('.', $file['name']);
 $ext = $temp[count($temp) - 1];
 $fileName = time() . rand(10000, 99999) . '.' . $ext;
 
-move_uploaded_file($file['tmp_name'], "$document_root/images/products/$fileName");
-$query = "INSERT INTO products (name, description, price, categoty_id, picture)
+move_uploaded_file($file['tmp_name'], "$document_/images/products/$fileName");
+$query = "INSERT INTO products (name, description, price, category_id, picture)
             VALUES(:name, :description, :price, :category_id, :picture)";
 
 $res = $pdo->prepare($query);       
@@ -67,6 +67,9 @@ $res->execute([
     ':category_id' => $category_id,
     ':picture' => $fileName
 ]);  
+
+var_dump($res->errorInfo());
+exit();
 
 unset($_SESSION['lastProductCreate']);
 

@@ -20,7 +20,9 @@ foreach ($categories as $category){
                 <p class='card-text'>
                     {$category['description']}
                 </p>
-                <a href='/pages/category.php?id=<?php echo {$category['id']}'> class='btn btn-primary'>Перейти</a>
+                <a href='/pages/category.php?id=<?php echo {$category['id']}'
+                 class='btn btn-primary'>Перейти
+                 </a>
             </div>
         </div>
     </div>
